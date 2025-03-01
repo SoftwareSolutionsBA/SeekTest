@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter/services.dart';
+import 'package:auth_module/Sources/MethodChannels/AuthMethodChannel';
+
+class NativeCommunication {
+  static const MethodChannel _channel = MethodChannel('flutter_native_channel');
+
+  // Enviar datos a Swift
+  static Future<void> sendDataToNative(String message) async {
+    try {
+      await _channel.invokeMethod('sendData', {'message': message});
+    } on PlatformException catch (e) {
+      print("Error sending data: ${e.message}");
+    }
+  }
+}
+
+class BiometricAuthScreen extends StatefulWidget {
+  @override
+  _BiometricAuthScreenState createState() => _BiometricAuthScreenState();
+}
+
+class _BiometricAuthScreenState extends State<BiometricAuthScreen> {
+  final LocalAuthentication auth = LocalAuthentication();
+  bool isAuthenticated = false;
+  String authMessage = "";
+
+  Future<void> authenticate() async {
+    try {
+      bool canCheckBiometrics = await auth.canCheckBiometrics;
+
+      if (!canCheckBiometrics) {
+        setState(() {
+          authMessage = "BioAuth not available";
+        });
+        return;
+      }
+
+      bool authenticated = await auth.authenticate(
+        localizedReason: 'Authenticate to access QRScanner',
+        options: AuthenticationOptions(biometricOnly: true),
+      );
+
+      setState(() {
+        isAuthenticated = authenticated;
+        authMessage = authenticated ? "Success" : "Failure";
+        AuthChannel.sendDataToNative(authMessage);
+      });
+
+    } catch (e) {
+      setState(() {
+        authMessage = "Error: ${e.toString()}";
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("BioAuth")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(authMessage, style: TextStyle(fontSize: 22)),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: authenticate,
+              child: Text("Launch AuthenticationXX"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

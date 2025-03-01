@@ -8,9 +8,7 @@ import SwiftUI
 
 struct QRScannerView: View {
     @StateObject var viewModel: QRScannerViewModel
-    @State private var scannedCode: String = ""
-    @State private var isAuthenticated = false
-
+    
     init(viewModel: QRScannerViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -18,18 +16,35 @@ struct QRScannerView: View {
     var body: some View {
 
         VStack {
-            if isAuthenticated {
-                ScannerView { scannedCode in
-                    self.scannedCode = scannedCode
-                }
-                .frame(height: 300)
+            NavigationStack {
+                Image(systemName: viewModel.isAuthenticated ? "lock.open.fill" : "lock.square")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
 
-                Text("Scanned Code: \(scannedCode)")
-                    .padding()
-            } else {
-                Button("Authenticate") {
+                if viewModel.isAuthenticated {
+                    Text("Scanned Code: \(viewModel.scannedCode)")
+                        .padding()
+
+                    HStack {
+                        Spacer()
+                        ScannerView { scannedCode in
+                            viewModel.scannedCode = scannedCode
+                        }
+                        Spacer()
+                    }
+                } else {
+                    NavigationLink {
+                        FlutterViewControllerRepresentable(isAuthenticated: $viewModel.isAuthenticated)
+                    } label: {
+                        Text("Authenticate")
+                            .bold()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.blue)
+                    .controlSize(.large)
+                    .padding(.vertical, 10)
                 }
-                .padding()
             }
         }
         .navigationTitle("QR Scanner")

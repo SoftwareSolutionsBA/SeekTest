@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B08C86E4403DE8EBED069EAD /* Pods_QRScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6A7DB7857EE8E20431855A /* Pods_QRScanner.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		27A5677A2D6FBA4800D99EDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,9 @@
 		27A567692D6FBA4700D99EDF /* QRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A567792D6FBA4800D99EDF /* QRScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A567832D6FBA4800D99EDF /* QRScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRScannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47120AD693A6EADFE9F4D716 /* Pods-QRScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScanner.debug.xcconfig"; path = "Target Support Files/Pods-QRScanner/Pods-QRScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		5E82ECD49815B28543D77C97 /* Pods-QRScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScanner.release.xcconfig"; path = "Target Support Files/Pods-QRScanner/Pods-QRScanner.release.xcconfig"; sourceTree = "<group>"; };
+		CD6A7DB7857EE8E20431855A /* Pods_QRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08C86E4403DE8EBED069EAD /* Pods_QRScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +100,8 @@
 				27A5677C2D6FBA4800D99EDF /* QRScannerTests */,
 				27A567862D6FBA4800D99EDF /* QRScannerUITests */,
 				27A5676A2D6FBA4700D99EDF /* Products */,
+				73B782D5C81FEDF48B06EC84 /* Pods */,
+				B20221148FBBD4B39289EDE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +115,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		73B782D5C81FEDF48B06EC84 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47120AD693A6EADFE9F4D716 /* Pods-QRScanner.debug.xcconfig */,
+				5E82ECD49815B28543D77C97 /* Pods-QRScanner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B20221148FBBD4B39289EDE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD6A7DB7857EE8E20431855A /* Pods_QRScanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +139,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27A5678D2D6FBA4800D99EDF /* Build configuration list for PBXNativeTarget "QRScanner" */;
 			buildPhases = (
+				A3D9EBCC28F4B23D037D74CA /* [CP] Check Pods Manifest.lock */,
+				C7D2C70E593AF3ED8CCDC426 /* [CP-User] Run Flutter Build auth_module Script */,
 				27A567652D6FBA4700D99EDF /* Sources */,
 				27A567662D6FBA4700D99EDF /* Frameworks */,
 				27A567672D6FBA4700D99EDF /* Resources */,
+				142F6C89A6F1799DF4653587 /* [CP-User] Embed Flutter Build auth_module Script */,
+				01573127C6BDD8AA9D1BF40F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,8 +155,6 @@
 				27A5676B2D6FBA4700D99EDF /* QRScanner */,
 			);
 			name = QRScanner;
-			packageProductDependencies = (
-			);
 			productName = TechTest;
 			productReference = 27A567692D6FBA4700D99EDF /* QRScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +176,6 @@
 				27A5677C2D6FBA4800D99EDF /* QRScannerTests */,
 			);
 			name = QRScannerTests;
-			packageProductDependencies = (
-			);
 			productName = TechTestTests;
 			productReference = 27A567792D6FBA4800D99EDF /* QRScannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,8 +197,6 @@
 				27A567862D6FBA4800D99EDF /* QRScannerUITests */,
 			);
 			name = QRScannerUITests;
-			packageProductDependencies = (
-			);
 			productName = TechTestUITests;
 			productReference = 27A567832D6FBA4800D99EDF /* QRScannerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -243,6 +268,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01573127C6BDD8AA9D1BF40F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRScanner/Pods-QRScanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRScanner/Pods-QRScanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QRScanner/Pods-QRScanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		142F6C89A6F1799DF4653587 /* [CP-User] Embed Flutter Build auth_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Embed Flutter Build auth_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/auth_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
+		};
+		A3D9EBCC28F4B23D037D74CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QRScanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D2C70E593AF3ED8CCDC426 /* [CP-User] Run Flutter Build auth_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Run Flutter Build auth_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/auth_module/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27A567652D6FBA4700D99EDF /* Sources */ = {
@@ -403,6 +490,7 @@
 		};
 		27A5678E2D6FBA4800D99EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47120AD693A6EADFE9F4D716 /* Pods-QRScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -411,9 +499,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"QRScanner/Preview Content\"";
 				DEVELOPMENT_TEAM = KR649QYVZA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QRScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use the camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to use FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -434,6 +524,7 @@
 		};
 		27A5678F2D6FBA4800D99EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E82ECD49815B28543D77C97 /* Pods-QRScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,9 +533,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"QRScanner/Preview Content\"";
 				DEVELOPMENT_TEAM = KR649QYVZA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QRScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use the camera";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to use FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

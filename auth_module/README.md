@@ -1,4 +1,4 @@
-# authmoduleflutter
+# auth_module
 
 A new Flutter module project.
 

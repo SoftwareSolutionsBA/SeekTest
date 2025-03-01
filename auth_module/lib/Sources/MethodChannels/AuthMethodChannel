@@ -1,0 +1,13 @@
+import 'package:flutter/services.dart';
+
+class AuthChannel {
+  static const MethodChannel _channel = MethodChannel('auth_channel');
+  
+  static Future<void> sendDataToNative(String message) async {
+    try {
+      await _channel.invokeMethod('sendData', {'message': message});
+    } on PlatformException catch (e) {
+      print("Error sending data: ${e.message}");
+    }
+  }
+}
