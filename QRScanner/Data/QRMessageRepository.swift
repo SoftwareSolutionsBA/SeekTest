@@ -22,6 +22,7 @@ class QRMessageRepository: QRMessageRepositoryDataSource {
 
             if !results.contains(where: { $0.scannedQR == value }) {
                 let storedQR = QRScannerEntity(context: context)
+                storedQR.scannedQR = value
                 try context.save()
             }
         } catch {
@@ -34,7 +35,8 @@ class QRMessageRepository: QRMessageRepositoryDataSource {
 
         do {
             let results = try context.fetch(fetchRequest)
-            return results.first?.scannedQR
+            let index = results.count > 2 ? results.count - 2 : 0
+            return results[index].scannedQR
         } catch {
             print("Failed to fetch string: \(error.localizedDescription)")
             return nil
