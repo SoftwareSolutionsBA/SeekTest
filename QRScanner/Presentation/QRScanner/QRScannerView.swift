@@ -23,6 +23,9 @@ struct QRScannerView: View {
                     .frame(width: 60, height: 60)
 
                 if viewModel.isAuthenticated {
+                    Text("Latest Scanned Code: \(viewModel.latestScannedCode)")
+                        .padding()
+
                     Text("Scanned Code: \(viewModel.scannedCode)")
                         .padding()
 
