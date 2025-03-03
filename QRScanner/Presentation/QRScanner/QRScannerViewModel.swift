@@ -6,6 +6,7 @@ class QRScannerViewModel: ObservableObject {
             guard !scannedCode.isEmpty else { return }
             let repository = QRMessageRepository()
             repository.saveString(scannedCode)
+            latestScannedCode = latestScannedCode
         }
     }
     @Published var isAuthenticated = false

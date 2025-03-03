@@ -52,6 +52,7 @@ struct QRScannerView: View {
         }
         .navigationTitle("QR Scanner")
         .onAppear(perform: {
+            viewModel.getLatestScannedCode()
         })
         .padding()
     }
